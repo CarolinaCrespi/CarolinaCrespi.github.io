@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carolina Crespi · CV</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="description" content="Curriculum di Carolina Crespi: ricerca in intelligenza artificiale e giochi che portano la scienza al pubblico.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,800&family=Silkscreen&display=swap">
+<style>
+  :root {
+    --yellow: #ffe14d; --pink: #ff4f9a; --blue: #3d5afe; --green: #19d38a; --sky: #8fa0ff; --ink: #111; --paper: #fffdf5;
+    --big: "Bricolage Grotesque", system-ui, sans-serif; --px: "Silkscreen", monospace;
+    --b: 3px solid var(--ink); --sh: 6px 6px 0 var(--ink);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 400 1rem/1.5 var(--big); }
+  a { color: inherit; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px 60px; }
+
+  /* lingua */
+  :root[data-lang="it"] [data-l="en"], :root[data-lang="en"] [data-l="it"] { display: none !important; }
+  .lang { display: flex; border: var(--b); border-radius: 999px; padding: 3px; background: var(--paper); }
+  .lang button { font: 400 .78rem/1 var(--px); border: 0; background: transparent; color: var(--ink); min-width: 38px; min-height: 30px; border-radius: 999px; cursor: pointer; }
+  .lang button[aria-pressed="true"] { background: var(--ink); color: var(--yellow); }
+
+  .bar { display: flex; align-items: center; gap: 10px; padding: 20px 0; }
+  .bar .back { margin-right: auto; font-family: var(--px); font-size: .8rem; color: var(--ink); text-decoration: none; border: var(--b); border-radius: 999px; padding: 7px 14px; }
+  .bar .back:hover, .btn:hover { background: var(--yellow); }
+  .btn { font: 800 .95rem var(--big); color: var(--ink); background: var(--paper); border: var(--b); border-radius: 999px; padding: 8px 16px; cursor: pointer; box-shadow: 3px 3px 0 var(--ink); text-decoration: none; }
+  .btn.dark { background: var(--ink); color: var(--paper); }
+  .btn.dark:hover { background: var(--ink); box-shadow: 3px 3px 0 var(--pink); }
+
+  /* intestazione */
+  header { background: var(--yellow); border: var(--b); border-radius: 24px; box-shadow: var(--sh); padding: 34px 38px 30px; }
+  h1 { margin: 0; font-weight: 800; font-size: clamp(2.4rem, 6vw, 3.8rem); line-height: .9; letter-spacing: -.04em; text-transform: uppercase; }
+  .role { margin: 12px 0 4px; font-weight: 800; font-size: 1.3rem; letter-spacing: -.01em; }
+  .tag { margin: 0 0 18px; font-size: 1.05rem; }
+  .contacts { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+  .contacts > li > a, .contacts > li > span { display: inline-block; font-family: var(--px); font-size: .72rem; background: var(--paper); border: 2px solid var(--ink); border-radius: 999px; padding: 3px 11px; text-decoration: none; }
+  .contacts a:hover { background: var(--green); }
+
+  h2 { font-family: var(--px); font-weight: 400; font-size: .85rem; letter-spacing: .02em; margin: 0 0 14px; }
+  section { margin-top: 38px; }
+  .profile p { margin: 0; max-width: 75ch; font-size: 1.06rem; }
+
+  /* due colonne di pari peso */
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-top: 38px; }
+  .col { border: var(--b); border-radius: 20px; box-shadow: var(--sh); background: var(--paper); overflow: hidden; }
+  .col > h2 { margin: 0; padding: 12px 20px; border-bottom: var(--b); font-size: .9rem; }
+  .col.res > h2 { background: var(--sky); } .col.cre > h2 { background: var(--green); }
+  .col .list { padding: 6px 20px 14px; }
+  .it { display: grid; grid-template-columns: 78px 1fr; gap: 10px; padding: 12px 0; border-bottom: 2px dashed rgb(0 0 0 / .15); break-inside: avoid; }
+  .it:last-child { border-bottom: 0; }
+  .when { font-family: var(--px); font-size: .7rem; padding-top: 4px; }
+  .it b { display: block; font-weight: 800; line-height: 1.25; }
+  .org { display: block; font-size: .9rem; color: #444; }
+  .it ul { margin: 6px 0 0; padding-left: 18px; font-size: .92rem; }
+  .it li { margin-bottom: 2px; }
+
+  /* blocchi in basso */
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .box { border: 2px solid var(--ink); border-radius: 16px; padding: 14px 16px; background: var(--paper); }
+  .box h3 { margin: 0 0 6px; font-size: 1rem; font-weight: 800; }
+  .box p { margin: 0; font-size: .93rem; }
+  .edu .it { grid-template-columns: 90px 1fr; border-bottom: 0; padding: 4px 0; }
+  .row2 { display: grid; grid-template-columns: 1.4fr 1fr; gap: 22px; }
+  .pubs p { margin: 0 0 10px; max-width: 70ch; }
+  .pubs .links { display: flex; flex-wrap: wrap; gap: 8px; }
+  footer { margin-top: 40px; font-family: var(--px); font-size: .7rem; text-align: center; }
+
+  @media (max-width: 760px) {
+    .two, .grid3, .row2 { grid-template-columns: 1fr; }
+    header { padding: 26px 22px; }
+  }
+
+  /* stampa / PDF: A4, sobrio, nessun pulsante */
+  @media print {
+    @page { size: A4; margin: 12mm 12mm 12mm; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { font-size: 8.6pt; background: #fff; }
+    .wrap { max-width: none; padding: 0; }
+    .noprint { display: none !important; }
+    header, .col { box-shadow: none; border-width: 1.5px; }
+    header { padding: 16px 20px 14px; border-radius: 14px; }
+    h1 { font-size: 26pt; }
+    .role { font-size: 12pt; margin-top: 6px; }
+    .tag { font-size: 9.5pt; margin-bottom: 10px; }
+    .contacts > li > a, .contacts > li > span { font-size: 6.4pt; border-width: 1px; padding: 1px 8px; }
+    section, .two { margin-top: 16px; }
+    .two { gap: 14px; }
+    h2 { font-size: 7.5pt; margin-bottom: 8px; }
+    .col > h2 { padding: 6px 12px; border-bottom-width: 1.5px; }
+    .col .list { padding: 2px 12px 8px; }
+    .it { grid-template-columns: 56px 1fr; padding: 6px 0; gap: 6px; }
+    .when { font-size: 6pt; }
+    .org, .it ul, .box p { font-size: 8pt; }
+    .profile p { font-size: 9pt; }
+    .box { padding: 8px 10px; border-width: 1px; }
+    .grid3, .row2 { gap: 12px; }
+    footer { display: none; }
+    a { text-decoration: none; }
+  }
+</style>
+<script>
+  (function () {
+    var l = null;
+    try { l = localStorage.getItem('cc_lang'); } catch (e) {}
+    if (l !== 'it' && l !== 'en') l = (navigator.language || 'it').toLowerCase().indexOf('it') === 0 ? 'it' : 'en';
+    document.documentElement.dataset.lang = l;
+    document.documentElement.lang = l;
+  })();
+</script>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar noprint">
+    <a class="back" href="index.html"><span data-l="it">← torna al sito</span><span data-l="en">← back to the site</span></a>
+    <button type="button" class="btn dark" onclick="window.print()"><span data-l="it">Scarica PDF</span><span data-l="en">Download PDF</span></button>
+    <div class="lang" role="group" aria-label="Lingua / Language"><button type="button" data-set-lang="it">IT</button><button type="button" data-set-lang="en">EN</button></div>
+  </div>
+
+  <header>
+    <h1>Carolina Crespi</h1>
+    <p class="role"><span data-l="it">Ricercatrice in Intelligenza Artificiale e creatrice di giochi</span><span data-l="en">AI researcher and game creator</span></p>
+    <p class="tag"><span data-l="it">Trasformo idee complesse in esperienze da provare con le mani.</span><span data-l="en">I turn complex ideas into experiences you can try with your own hands.</span></p>
+    <ul class="contacts">
+      <li><a href="mailto:carolina.crespi@hotmail.it">carolina.crespi@hotmail.it</a></li>
+      <li><span>Catania, Italia</span></li>
+      <li><a href="https://www.linkedin.com/in/carolina-crespi-9613a328a/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/CarolinaCrespi" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="https://scholar.google.com/citations?user=r3UMA7MAAAAJ" target="_blank" rel="noopener">Google Scholar</a></li>
+      <li><a href="https://www.dmi.unict.it/ccrespi/" target="_blank" rel="noopener"><span data-l="it">Sito accademico</span><span data-l="en">Academic website</span></a></li>
+    </ul>
+  </header>
+
+  <section class="profile">
+    <h2><span data-l="it">profilo</span><span data-l="en">profile</span></h2>
+    <p><span data-l="it">Postdoc in informatica all'Università di Catania, con una formazione in fisica. Studio come tanti agenti semplici, insieme, prendono decisioni intelligenti: intelligenza di sciame, modelli ad agenti, navigazione autonoma. In parallelo progetto giochi ed esperienze interattive che portano la ricerca fuori dall'università, dagli eventi di divulgazione ai giochi per browser.</span><span data-l="en">Postdoctoral researcher in computer science at the University of Catania, with a background in physics. I study how many simple agents, together, make intelligent decisions: swarm intelligence, agent-based models, autonomous navigation. Alongside research, I design games and interactive experiences that take science beyond the university, from public outreach events to browser games.</span></p>
+  </section>
+
+  <div class="two">
+    <!-- RICERCA E DIDATTICA -->
+    <div class="col res">
+      <h2><span data-l="it">ricerca e didattica</span><span data-l="en">research and teaching</span></h2>
+      <div class="list">
+        <div class="it"><span class="when">2025 →</span><div><b>Postdoc</b><span class="org"><span data-l="it">Gruppo CIS, Università di Catania · ottimizzazione, comportamenti collettivi, navigazione autonoma</span><span data-l="en">CIS Group, University of Catania · optimisation, collective behaviour, autonomous navigation</span></span></div></div>
+        <div class="it"><span class="when">2024 →</span><div><b><span data-l="it">Docente</span><span data-l="en">Lecturer</span></b><span class="org"><span data-l="it">Intelligenza Artificiale (Informatica, dal 2025) · Principi di Informatica (Biotecnologie, 2024–2026)</span><span data-l="en">Artificial Intelligence (Computer Science, since 2025) · Principles of Computer Science (Biotechnology, 2024–2026)</span></span></div></div>
+        <div class="it"><span class="when">2025 →</span><div><b><span data-l="it">Editoria scientifica</span><span data-l="en">Scientific editing</span></b><span class="org"><span data-l="it">Guest Editor di 2 collezioni Springer · curatrice di un volume Springer (WBO 2025)</span><span data-l="en">Guest Editor of 2 Springer collections · Volume Editor, WBO 2025 (Springer)</span></span></div></div>
+        <div class="it"><span class="when">2020–24</span><div><b><span data-l="it">Dottorato in Informatica</span><span data-l="en">PhD in Computer Science</span></b><span class="org"><span data-l="it">Gruppo CIS · intelligenza di sciame e ottimizzazione · modelli di fiducia con University of Manchester e Heriot-Watt University</span><span data-l="en">CIS Group · swarm intelligence and optimisation · trust models with the University of Manchester and Heriot-Watt University</span></span></div></div>
+        <div class="it"><span class="when">2019 →</span><div><b><span data-l="it">Relatrice e organizzatrice in 16 eventi scientifici</span><span data-l="en">Speaker or organiser at 16 scientific events</span></b><span class="org">OLA, MIC, BIOMA, ECAI, MESS</span></div></div>
+        <div class="it"><span class="when">2014–19</span><div><b><span data-l="it">Tutor di matematica e fisica</span><span data-l="en">Maths and physics tutor</span></b><span class="org"><span data-l="it">Campus Athena; ONLUS Mediterraneo Sicilia Europa · corso di preparazione ai test di medicina</span><span data-l="en">Campus Athena; ONLUS Mediterraneo Sicilia Europa · prep course for medical school entrance exams</span></span></div></div>
+      </div>
+    </div>
+
+    <!-- GIOCHI E DIVULGAZIONE -->
+    <div class="col cre">
+      <h2><span data-l="it">giochi e divulgazione</span><span data-l="en">games and outreach</span></h2>
+      <div class="list">
+        <div class="it"><span class="when">2026</span><div><b>Nunner</b><span class="org"><span data-l="it">Runner arcade in pixel art: una suora di 70 anni contro i sette peccati capitali</span><span data-l="en">Pixel-art arcade runner: a 70-year-old nun against the seven deadly sins</span></span></div></div>
+        <div class="it"><span class="when">2026</span><div><b><span data-l="it">La Sala Giochi dell'IA</span><span data-l="en">The AI Game Room</span></b><span class="org"><span data-l="it">Sei giochi in cui il pubblico sfida gli algoritmi · SHARPER 2026, Notte europea dei ricercatori, Catania</span><span data-l="en">Six games where the public takes on algorithms · SHARPER 2026, European Researchers' Night, Catania</span></span></div></div>
+        <div class="it"><span class="when">2026</span><div><b>C'era una volta un re…</b><span class="org"><span data-l="it">Storia interattiva che spiega la ricorsione con una filastrocca</span><span data-l="en">Interactive story explaining recursion through a nursery rhyme</span></span></div></div>
+        <div class="it"><span class="when">2025</span><div><b>CIS Lab: gioca e impara!</b><span class="org"><span data-l="it">I primi giochi del laboratorio, a SHARPER 2025</span><span data-l="en">The lab's first games, at SHARPER 2025</span></span></div></div>
+        <div class="it"><span class="when">2025</span><div><b>Baduz</b><span class="org"><span data-l="it">Gioco di labirinti in 20 livelli, con suggerimenti basati su BFS</span><span data-l="en">20-level maze game with BFS-based hints</span></span></div></div>
+        <div class="it"><span class="when">2024</span><div><b><span data-l="it">Lezione sull'IA</span><span data-l="en">Lecture on AI</span></b><span class="org">"Exploring Artificial Intelligence: From Concepts to Applications" · Syracuse Academy</span></div></div>
+        <div class="it"><span class="when">2019</span><div><b><span data-l="it">Guida scientifica</span><span data-l="en">Science guide</span></b><span class="org"><span data-l="it">Mostra "Diamo i numeri", Catania</span><span data-l="en">"Diamo i numeri" science exhibition, Catania</span></span></div></div>
+        <div class="it"><span class="when">2012–15</span><div><b>LiveUniCT</b><span class="org"><span data-l="it">Fotografa agli eventi, grafica e autrice di articoli · nel 2014 StartUP Academy con il team</span><span data-l="en">Event photographer, graphic designer and writer · StartUP Academy with the team in 2014</span></span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <h2><span data-l="it">competenze</span><span data-l="en">skills</span></h2>
+    <div class="grid3">
+      <div class="box"><h3><span data-l="it">Ricerca e dati</span><span data-l="en">Research and data</span></h3><p><span data-l="it">Python, R, NetLogo, modelli ad agenti, ottimizzazione e metaeuristiche, analisi e visualizzazione dei dati, LaTeX</span><span data-l="en">Python, R, NetLogo, agent-based models, optimisation and metaheuristics, data analysis and visualisation, LaTeX</span></p></div>
+      <div class="box"><h3><span data-l="it">Creatività e sviluppo</span><span data-l="en">Creativity and development</span></h3><p><span data-l="it">Game design, HTML, CSS e JavaScript, Phaser, design e sviluppo con l'IA, visual thinking, fotografia, grafica</span><span data-l="en">Game design, HTML, CSS and JavaScript, Phaser, AI-driven design and development, visual thinking, photography, graphic design</span></p></div>
+      <div class="box"><h3><span data-l="it">Persone</span><span data-l="en">People</span></h3><p><span data-l="it">Divulgazione scientifica, public speaking, insegnamento, organizzazione di eventi, lavoro in team interdisciplinari</span><span data-l="en">Science communication, public speaking, teaching, event organisation, working in interdisciplinary teams</span></p></div>
+    </div>
+  </section>
+
+  <div class="row2">
+    <section class="edu">
+      <h2><span data-l="it">istruzione</span><span data-l="en">education</span></h2>
+      <div class="it"><span class="when">2024</span><div><b><span data-l="it">Dottorato in Informatica</span><span data-l="en">PhD in Computer Science</span></b><span class="org"><span data-l="it">Università di Catania</span><span data-l="en">University of Catania</span></span></div></div>
+      <div class="it"><span class="when">2020</span><div><b><span data-l="it">Laurea magistrale in Fisica</span><span data-l="en">MSc in Physics</span></b><span class="org"><span data-l="it">Università di Catania</span><span data-l="en">University of Catania</span></span></div></div>
+      <div class="it"><span class="when">2013</span><div><b><span data-l="it">Laurea triennale in Fisica</span><span data-l="en">BSc in Physics</span></b><span class="org"><span data-l="it">Università di Catania</span><span data-l="en">University of Catania</span></span></div></div>
+    </section>
+    <section>
+      <h2><span data-l="it">lingue</span><span data-l="en">languages</span></h2>
+      <div class="box"><p><span data-l="it"><b>Italiano</b> madrelingua · <b>Inglese</b> professionale</span><span data-l="en"><b>Italian</b> native · <b>English</b> professional working proficiency</span></p></div>
+    </section>
+  </div>
+
+  <!-- PUBBLICAZIONI: blocco provvisorio, da decidere -->
+  <section class="pubs">
+    <h2><span data-l="it">pubblicazioni</span><span data-l="en">publications</span></h2>
+    <p><span data-l="it">10+ pubblicazioni su riviste e conferenze internazionali (Springer, IEEE, Elsevier, MDPI) su intelligenza di sciame, modelli ad agenti e navigazione autonoma.</span><span data-l="en">10+ publications in international journals and conferences (Springer, IEEE, Elsevier, MDPI) on swarm intelligence, agent-based models and autonomous navigation.</span></p>
+    <div class="links noprint"><a class="btn" href="https://scholar.google.com/citations?user=r3UMA7MAAAAJ" target="_blank" rel="noopener">Google Scholar →</a><a class="btn" href="CV_Crespi.pdf" target="_blank" rel="noopener"><span data-l="it">CV accademico completo (PDF, EN) →</span><span data-l="en">Full academic CV (PDF) →</span></a></div>
+  </section>
+
+  <footer class="noprint">© 2026 Carolina Crespi</footer>
+</div>
+<script>
+  (() => {
+    const root = document.documentElement;
+    const titles = { it: 'Carolina Crespi · CV', en: 'Carolina Crespi · CV' };
+    function setLang(l) {
+      root.dataset.lang = l; root.lang = l; document.title = titles[l];
+      try { localStorage.setItem('cc_lang', l); } catch (e) {}
+      for (const b of document.querySelectorAll('[data-set-lang]')) b.setAttribute('aria-pressed', String(b.dataset.setLang === l));
+    }
+    for (const b of document.querySelectorAll('[data-set-lang]')) b.addEventListener('click', () => setLang(b.dataset.setLang));
+    setLang(root.dataset.lang === 'en' ? 'en' : 'it');
+  })();
+</script>
+</body>
+</html>

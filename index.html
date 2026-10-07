@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carolina Crespi · giochi e ricerca</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="description" content="Carolina Crespi: postdoc in informatica all'Università di Catania. Dove la ricerca diventa gioco: ricerca sull'intelligenza artificiale e giochi, a volte per spiegarla, a volte solo per il gusto di giocare.">
+<link rel="canonical" href="https://carolinacrespi.it/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://carolinacrespi.it/">
+<meta property="og:image" content="https://carolinacrespi.it/img/anteprima.jpg">
+<meta property="og:title" content="Carolina Crespi · giochi e ricerca">
+<meta property="og:description" content="Ricerca sull'intelligenza artificiale e giochi, a volte per spiegarla, a volte solo per il gusto di giocare.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,800&family=Silkscreen&family=Caveat:wght@600&display=swap">
+<style>
+  :root {
+    --yellow: #ffe14d; --pink: #ff4f9a; --blue: #3d5afe; --green: #19d38a; --ink: #111; --paper: #fffdf5;
+    --big: "Bricolage Grotesque", system-ui, sans-serif; --px: "Silkscreen", monospace; --hand: "Caveat", cursive;
+    --b: 3px solid var(--ink); --sh: 6px 6px 0 var(--ink);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 20px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 400 1.06rem/1.55 var(--big); overflow-x: hidden; }
+  img { display: block; max-width: 100%; height: auto; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  nav { display: flex; align-items: center; gap: 10px; padding: 20px 0; }
+  nav .logo { margin-right: auto; font-family: var(--px); font-size: 1.6rem; line-height: 1; color: var(--ink); text-decoration: none; background: var(--yellow); border: var(--b); border-radius: 12px; padding: 6px 12px 8px; box-shadow: 3px 3px 0 var(--ink); transform: rotate(-3deg); }
+  nav .logo:hover { background: var(--green); }
+  nav a { color: var(--ink); text-decoration: none; border: var(--b); border-radius: 999px; padding: 6px 16px; background: var(--paper); font-size: .95rem; font-weight: 500; }
+  nav a:hover { background: var(--yellow); }
+  /* ---------- lingua ---------- */
+  :root[data-lang="it"] [data-l="en"], :root[data-lang="en"] [data-l="it"] { display: none !important; }
+  .lang { display: flex; border: var(--b); border-radius: 999px; padding: 3px; background: var(--paper); margin-left: 6px; }
+  .lang button { font: 400 .78rem/1 var(--px); border: 0; background: transparent; color: var(--ink); min-width: 38px; min-height: 30px; border-radius: 999px; cursor: pointer; }
+  .lang button[aria-pressed="true"] { background: var(--ink); color: var(--yellow); }
+
+  /* ---------- scritte a mano (dalla bozza Collage) ---------- */
+  .side { position: absolute; top: 90px; font-family: var(--hand); font-size: 1.6rem; color: var(--blue); white-space: nowrap; writing-mode: vertical-rl; }
+  .side.l { left: -60px; transform: rotate(180deg); }
+  .side.r { right: -60px; }
+  .side.red { color: var(--pink); }
+  .aside { font-family: var(--hand); font-size: 1.7rem; color: var(--blue); display: inline-block; transform: rotate(-5deg); margin-left: 12px; vertical-align: middle; letter-spacing: 0; line-height: 1; font-weight: 600; }
+  .check { background: #ffe3f4; border: 2px dashed var(--pink); font-family: var(--px); font-size: .7rem; padding: 2px 8px; vertical-align: middle; }
+  .note { font-family: var(--px); font-size: .75rem; background: var(--yellow); border: 2px solid var(--ink); padding: 2px 8px; vertical-align: middle; letter-spacing: 0; }
+
+  /* ---------- apertura ---------- */
+  .hero { background: var(--yellow); border: var(--b); border-radius: 28px; box-shadow: var(--sh); padding: 56px 56px 60px; position: relative; display: grid; grid-template-columns: 1.4fr .6fr; gap: 44px; align-items: center; margin-top: 8px; }
+  .hi { display: inline-block; font-family: var(--hand); font-size: 2rem; color: var(--ink); background: var(--paper); border: var(--b); border-radius: 999px; padding: 0 16px; transform: rotate(-4deg); margin: 0 0 14px; box-shadow: 3px 3px 0 var(--ink); }
+  .hero h1 { font-weight: 800; font-size: clamp(3rem, 8.4vw, 7.4rem); line-height: .86; letter-spacing: -.045em; margin: 0 0 22px; text-transform: uppercase; }
+  .tagline { margin: 0 0 22px; }
+  .tagline .t1 { font-weight: 800; font-size: clamp(1.6rem, 3.2vw, 2.6rem); letter-spacing: -.025em; line-height: 1.1; }
+  .tagline .t1 em { font-style: normal; background: var(--pink); color: var(--paper); padding: 0 .14em; border-radius: 8px; }
+  .tagline .t2 { display: inline-block; font-family: var(--px); font-size: clamp(1rem, 1.8vw, 1.4rem); background: var(--ink); color: var(--yellow); padding: 4px 14px; border-radius: 999px; margin-left: 6px; transform: rotate(-3deg); vertical-align: middle; }
+  .hero .intro { font-size: 1.2rem; max-width: 46ch; margin: 0 0 28px; }
+  .hero .intro b { font-weight: 800; }
+  .btn { display: inline-block; background: var(--ink); color: var(--paper); text-decoration: none; font-weight: 800; padding: 15px 24px; border-radius: 999px; border: var(--b); transition: transform .12s, box-shadow .12s; }
+  .btn:hover { transform: translate(-3px, -3px); box-shadow: 5px 5px 0 var(--pink); }
+  .btn.alt { background: var(--paper); color: var(--ink); margin-left: 8px; }
+  .photo { position: relative; }
+  .photo img { border: var(--b); border-radius: 22px; box-shadow: var(--sh); transform: rotate(3deg); background: var(--paper); }
+  .sticker { position: absolute; font-family: var(--px); font-size: .78rem; background: var(--paper); border: var(--b); border-radius: 999px; padding: 7px 13px; box-shadow: 3px 3px 0 var(--ink); white-space: nowrap; }
+  .s1 { top: -16px; left: -34px; transform: rotate(-8deg); background: var(--green); }
+  .s2 { bottom: 36px; left: -56px; transform: rotate(6deg); background: var(--pink); color: var(--paper); }
+  .s3 { bottom: -18px; right: -12px; transform: rotate(-4deg); background: var(--blue); color: var(--paper); }
+  .scrib { position: absolute; font-family: var(--hand); font-size: 1.7rem; line-height: 1.05; color: var(--ink); }
+  .scrib.a { top: -48px; right: 10px; transform: rotate(4deg); }
+  .side-hero { position: absolute; left: -60px; top: 120px; font-family: var(--hand); font-size: 1.6rem; color: var(--pink); writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap; }
+
+  .ticker { margin: 46px -24px 0; background: var(--ink); color: var(--yellow); font-family: var(--px); font-size: 1rem; padding: 14px 0; overflow: hidden; white-space: nowrap; transform: rotate(-1.2deg); }
+  .ticker span { display: inline-block; animation: scroll 32s linear infinite; }
+  @keyframes scroll { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .ticker span { animation: none; } }
+
+  /* ---------- sezioni ---------- */
+  section { padding: 90px 0 20px; position: relative; }
+  .kick { display: inline-block; font-family: var(--px); font-size: .85rem; border: 2px solid var(--ink); border-radius: 999px; padding: 2px 12px; margin-bottom: 14px; background: var(--paper); }
+  h2 { font-weight: 800; font-size: clamp(2.2rem, 5vw, 3.8rem); letter-spacing: -.035em; line-height: 1; margin: 0 0 22px; }
+  h2 em { font-style: normal; background: var(--yellow); padding: 0 .12em; border-radius: 8px; }
+  .lead { max-width: 62ch; font-size: 1.12rem; margin: 0 0 40px; }
+
+
+  .games { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .game { border: var(--b); border-radius: 22px; overflow: hidden; box-shadow: var(--sh); background: var(--paper); color: var(--ink); text-decoration: none; display: flex; flex-direction: column; transition: transform .12s; }
+  .game:hover { transform: rotate(-.6deg) scale(1.01); }
+  .game.big { grid-column: 1 / -1; flex-direction: row; }
+  .game img { width: 100%; aspect-ratio: 16/10; object-fit: cover; object-position: left; border-bottom: var(--b); }
+  .game.big img { width: 58%; flex: none; aspect-ratio: 1200/630; border-bottom: 0; border-right: var(--b); }
+  .game.big .body { justify-content: center; padding: 28px 32px; }
+  .game.big h3 { font-size: 2.3rem; }
+  .game .body { padding: 18px 22px 22px; flex: 1; display: flex; flex-direction: column; }
+  .game h3 { margin: 0 0 6px; font-weight: 800; font-size: 1.35rem; letter-spacing: -.02em; display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+  .game h3 > span:last-child { font-family: var(--px); font-size: .75rem; font-weight: 400; letter-spacing: 0; border: 2px solid var(--ink); border-radius: 999px; padding: 1px 10px; white-space: nowrap; }
+  .game .story { margin: 0; font-size: .98rem; }
+  .game .tl { margin: 0; font-size: 1.05rem; font-style: italic; }
+  .game .hn b { font-weight: 800; }
+  .game .hn.why { margin-top: 10px; padding-top: 8px; border-top: 2px dashed var(--ink); }
+  .game .hn { margin: 4px 0 0; font-size: .95rem; line-height: 1.45; color: #333; }
+  .game .lang-tag { display: inline-block; align-self: flex-start; margin-top: 8px; font-family: var(--px); font-size: .68rem; border: 2px dashed var(--ink); border-radius: 999px; padding: 0 9px; }
+  .game.big .story { font-size: 1.08rem; }
+  .game .meta { margin: auto 0 0; padding-top: 14px; font-family: var(--px); font-size: .68rem; }
+  .game.big .meta { margin-top: 0; }
+
+  /* ---------- ricerca ---------- */
+  .chain { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 14px; align-items: stretch; }
+  .link { border: var(--b); border-radius: 22px; box-shadow: var(--sh); background: var(--paper); overflow: hidden; }
+  .link { display: flex; flex-direction: column; }
+  .link .w { font-weight: 800; font-size: 1.15rem; line-height: 1.15; letter-spacing: -.015em; padding: 12px 18px; border-bottom: var(--b); }
+  .link p { margin: 0; padding: 12px 18px 12px; font-size: .95rem; line-height: 1.45; }
+  .link .tagx { margin: auto 18px 16px; align-self: flex-start; font-family: var(--px); font-size: .68rem; color: var(--ink); background: var(--paper); border: 2px solid var(--ink); border-radius: 999px; padding: 2px 10px; text-decoration: none; }
+  .link .try { background: var(--yellow); box-shadow: 2px 2px 0 var(--ink); }
+  .link .try:hover { background: var(--green); }
+  /* titoli tutti in nero; l'azzurro è più chiaro del blu, così il nero si legge */
+  .link:nth-of-type(1) .w { background: var(--green); } .link:nth-of-type(2) .w { background: var(--pink); } .link:nth-of-type(3) .w { background: #8fa0ff; }
+  .link .q { font-weight: 800; font-size: 1.12rem; padding: 16px 22px 0; line-height: 1.25; }
+  .chain .to { font-weight: 800; font-size: 2.4rem; align-self: center; }
+  .numbers { display: grid; grid-template-columns: repeat(4, 1fr); margin: 44px 0 28px; background: var(--ink); color: var(--paper); border-radius: 22px; overflow: hidden; }
+  .numbers div { padding: 24px 22px; border-right: 2px solid #333; }
+  .numbers div:last-child { border-right: 0; }
+  .numbers b { display: block; font-weight: 800; font-size: 2.8rem; line-height: 1; color: var(--yellow); letter-spacing: -.03em; }
+  .numbers span { font-size: .95rem; }
+  .links { display: flex; flex-wrap: wrap; gap: 10px; }
+  .links a { font-family: var(--px); font-size: .78rem; color: var(--ink); background: var(--paper); border: var(--b); border-radius: 999px; padding: 7px 16px; text-decoration: none; box-shadow: 3px 3px 0 var(--ink); }
+  .links a:hover { background: var(--yellow); }
+  footer { margin-top: 56px; padding: 22px 0 30px; border-top: var(--b); font-family: var(--px); font-size: .75rem; text-align: center; }
+
+  /* ---------- chi sono ---------- */
+  .bio { display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: start; }
+  .bio .quote { font-weight: 800; font-size: clamp(1.6rem, 2.8vw, 2.2rem); line-height: 1.12; letter-spacing: -.02em; margin: 0 0 26px; }
+  .bio .quote mark { background: var(--green); padding: 0 .1em; border-radius: 6px; }
+  .bio .story p:not(.quote) { margin: 0 0 16px; font-size: 1.08rem; max-width: 60ch; }
+  .bio .story b { font-weight: 800; background: var(--yellow); padding: 0 3px; }
+  .bio a.ext { color: var(--ink); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+  .bio a.ext:hover { background: var(--yellow); }
+  .now ul li { margin-bottom: 4px; }
+  /* timeline a due binari: università sopra, giochi sotto, stesso asse degli anni */
+  .tline { margin-top: 56px; display: grid; grid-template-columns: 100px .7fr .7fr .7fr 1.55fr 2.05fr; border: var(--b); border-radius: 22px; box-shadow: var(--sh); background: var(--paper); overflow: hidden; }
+  .tline .row { grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; }
+  .tline .row + .row { border-top: var(--b); }
+  .tline .axis { background: var(--ink); color: var(--yellow); font-family: var(--px); font-size: .8rem; }
+  .tline .axis span { padding: 9px 14px; }
+  .tline .lane { font-family: var(--hand); font-size: 1.5rem; line-height: 1; padding: 16px 14px; border-right: var(--b); }
+  .tline .uni { background: #ffe3f0; } .tline .gms { background: #e6fbf2; }
+  .tline .cell { display: flex; gap: 10px; padding: 0 12px 16px; }
+  .tline .cell + .cell { border-left: 2px dashed rgb(0 0 0 / .18); }
+  .tline .track { background: linear-gradient(var(--ink), var(--ink)) 0 25px / 100% 3px no-repeat; }
+  .tline .track.start { background-position: right 25px; background-size: calc(100% - 20px) 3px; }
+  .tline .span2 { grid-column: span 2; position: relative; }
+  .tline .span2::after { content: "→"; position: absolute; right: 4px; top: 13px; font-weight: 800; font-size: 1.5rem; line-height: 1; background: #ffe3f0; padding: 0 2px; }
+  .tline .ev { flex: 1; display: flex; flex-direction: column; min-width: 0; font-size: .85rem; line-height: 1.3; }
+  .tline .ev::before { content: ""; width: 16px; height: 16px; border: 3px solid var(--ink); border-radius: 50%; margin: 18px 0 10px; background: var(--pink); }
+  .tline .gms .ev::before { background: var(--green); }
+  .tline .ev b { font-size: .92rem; font-weight: 800; line-height: 1.2; margin-bottom: 2px; }
+  .tline .yy { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .now { background: var(--paper); border: var(--b); padding: 24px 22px 20px; box-shadow: var(--sh); transform: rotate(1.5deg); position: relative; width: min(100%, 300px); aspect-ratio: 1; justify-self: center; display: flex; flex-direction: column; justify-content: center; }
+  .now::before { content: ""; position: absolute; top: -14px; left: 50%; width: 90px; height: 26px; margin-left: -45px; background: rgb(255 225 77 / .9); border: 1px solid rgb(0 0 0 / .15); transform: rotate(-3deg); }
+  .now h3 { margin: 0 0 8px; font-family: var(--px); font-size: .85rem; font-weight: 400; }
+  .now ul { margin: 0; padding: 0 0 0 18px; font-family: var(--hand); font-size: 1.5rem; line-height: 1.25; }
+  .photo-slot { margin-top: 34px; width: 250px; border: var(--b); border-radius: 18px; box-shadow: var(--sh); background: var(--paper); padding: 10px 10px 0; transform: rotate(-3deg); position: relative; }
+  .photo-slot .ph { aspect-ratio: 1; border-radius: 10px; background: repeating-linear-gradient(45deg, #f1ecdd 0 10px, #e6e0cf 10px 20px); display: grid; place-items: center; font-family: var(--px); font-size: .7rem; text-align: center; padding: 20px; }
+  .photo-slot .cap { display: block; text-align: center; font-family: var(--hand); font-size: 1.35rem; padding: 4px 0 6px; }
+  .photo-slot .sticker { top: -14px; right: -26px; background: var(--pink); color: var(--paper); transform: rotate(8deg); font-size: .7rem; }
+
+  /* ---------- dietro le quinte ---------- */
+  .bts { display: block; }
+  .bts .carousel { margin-top: 32px; max-width: 370px; }
+  .bts-row { display: grid; grid-template-columns: minmax(0, 340px); gap: 22px; margin-top: 32px; align-items: stretch; }
+  .bts .bts-row .carousel { margin-top: 0; max-width: none; display: flex; flex-direction: column; }
+  .bts-row .carousel .ctrl { margin-top: auto; }
+  .scheme { margin: 0; border: var(--b); border-radius: 22px; box-shadow: var(--sh); background: var(--paper); overflow: hidden; display: flex; flex-direction: column; }
+  .scheme .hd { font-weight: 800; font-size: 1.05rem; padding: 12px 18px; border-bottom: var(--b); background: var(--yellow); }
+  .scheme svg { display: block; width: 100%; height: auto; padding: 8px 6px 0; }
+  .scheme figcaption { margin-top: auto; padding: 10px 18px 16px; font-size: .93rem; font-weight: 500; border-top: 2px solid var(--ink); }
+  .scheme code { font-family: var(--px); font-size: .8rem; background: var(--yellow); padding: 0 4px; }
+  .bts .lead { margin-bottom: 0; }
+  .carousel { border: var(--b); border-radius: 22px; box-shadow: var(--sh); background: var(--paper); overflow: hidden; }
+  .track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; }
+  .track::-webkit-scrollbar { display: none; }
+  .slide { flex: 0 0 100%; scroll-snap-align: start; margin: 0; }
+  .slide img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; border-bottom: var(--b); background: #1a1530; }
+  .slide.fit img { object-fit: contain; }
+  .slide figcaption { padding: 12px 18px; font-size: .97rem; font-weight: 500; min-height: 3.4em; }
+  .slide figcaption b { font-family: var(--px); font-weight: 400; font-size: .7rem; border: 2px solid var(--ink); border-radius: 999px; padding: 0 8px; margin-right: 8px; background: var(--yellow); }
+  .ctrl { display: flex; align-items: center; justify-content: space-between; padding: 0 18px 16px; }
+  .ctrl button { font: 800 1.1rem var(--big); width: 44px; height: 44px; border: var(--b); border-radius: 50%; background: var(--paper); cursor: pointer; box-shadow: 3px 3px 0 var(--ink); }
+  .ctrl button:hover { background: var(--yellow); }
+  .ctrl .count { font-family: var(--px); font-size: .8rem; }
+
+  /* ---------- contatti ---------- */
+  .contact { margin: 100px 0 60px; background: var(--pink); color: var(--paper); border: var(--b); border-radius: 28px; box-shadow: var(--sh); padding: 70px 56px; position: relative; }
+  .contact .kick { color: var(--ink); }
+  .contact h2 em { color: var(--ink); }
+  .contact .lead { font-size: 1.2rem; max-width: 56ch; }
+  .contact .btn { background: var(--yellow); color: var(--ink); font-size: 1.15rem; }
+  .contact .btn:hover { box-shadow: 5px 5px 0 var(--ink); }
+  .contact .hand { display: block; font-family: var(--hand); font-size: 1.7rem; margin: 22px 0 26px; transform: rotate(-2deg); transform-origin: left; }
+  .contact .links a { box-shadow: 3px 3px 0 var(--ink); }
+
+  @media (max-width: 1330px) { .side, .side-hero { display: none; } }
+  
+  @media (max-width: 860px) {
+    .hero, .games, .bts-row, .bio, .chain { grid-template-columns: 1fr; }
+    .hero, .contact { padding: 40px 26px; }
+    .photo { max-width: 300px; margin: 20px auto 10px; }
+    .game.big { flex-direction: column; }
+    .game.big img { width: 100%; border-right: 0; border-bottom: var(--b); }
+    .chain .to { transform: rotate(90deg); justify-self: center; }
+    .numbers { grid-template-columns: 1fr 1fr; }
+    .numbers div:nth-child(2) { border-right: 0; }
+    .numbers div:nth-child(-n+2) { border-bottom: 2px solid #333; }
+    nav a, .aside, .scrib { display: none; }    .tline { display: block; }
+    .tline .row { display: block; }
+    .tline .axis, .tline .cell:empty { display: none; }
+    .tline .lane { border-right: 0; border-bottom: 2px solid var(--ink); }
+    .tline .cell { display: block; padding: 4px 16px; border: 0 !important; background: none !important; }
+    .tline .span2::after { display: none; }
+    .tline .ev { display: block; position: relative; padding: 10px 0 10px 28px; }
+    .tline .ev::before { position: absolute; left: 0; top: 12px; margin: 0; }
+    .tline .ev b { display: inline; }
+    .tline .ev .d { display: block; }
+    .tline .yy { position: static; width: auto; height: auto; clip: auto; font-family: var(--px); font-size: .72rem; margin-right: 8px; }
+    .s2 { left: -10px; }
+  }
+</style>
+<script>
+  (function () {
+    var l = null;
+    try { l = localStorage.getItem('cc_lang'); } catch (e) {}
+    if (l !== 'it' && l !== 'en') l = (navigator.language || 'it').toLowerCase().indexOf('it') === 0 ? 'it' : 'en';
+    document.documentElement.dataset.lang = l;
+    document.documentElement.lang = l;
+  })();
+</script>
+</head>
+<body>
+<div class="wrap">
+  <nav><a class="logo" href="#" data-aria-it="Carolina Crespi, torna all'inizio" data-aria-en="Carolina Crespi, back to top" aria-label="Carolina Crespi, torna all'inizio">CC</a><a href="#giochi"><span data-l="it">Giochi</span><span data-l="en">Games</span></a><a href="#ricerca"><span data-l="it">Ricerca</span><span data-l="en">Research</span></a><a href="#chi-sono"><span data-l="it">Chi sono</span><span data-l="en">About</span></a><a href="#contatti"><span data-l="it">Contatti</span><span data-l="en">Contact</span></a>
+    <div class="lang" role="group" aria-label="Lingua / Language"><button type="button" data-set-lang="it">IT</button><button type="button" data-set-lang="en">EN</button></div></nav>
+
+  <!-- ============ APERTURA ============ -->
+  <header class="hero">
+    <div>
+      <p class="hi"><span data-l="it">ciao, sono</span><span data-l="en">hi, I'm</span></p>
+      <h1>Carolina<br>Crespi</h1>
+      <p class="tagline"><span class="t1"><span data-l="it">Curiosa per mestiere, <em>creativa</em> per natura.</span><span data-l="en">Curious by trade, <em>creative</em> by nature.</span></span></p>
+      <p class="intro"><span data-l="it"><b>Dove la ricerca diventa gioco.</b> Faccio ricerca sull'intelligenza artificiale e invento giochi, a volte per spiegarla, a volte solo per il gusto di giocare.</span><span data-l="en"><b>Where research becomes play.</b> I research artificial intelligence and invent games, sometimes to explain it, sometimes just for the fun of playing.</span></p>
+      <a class="btn" href="#giochi"><span data-l="it">Guarda i giochi →</span><span data-l="en">See the games →</span></a><a class="btn alt" href="#contatti"><span data-l="it">Scrivimi</span><span data-l="en">Get in touch</span></a>
+    </div>
+    <div class="photo">
+      <img src="img/ritratto.jpg" width="800" height="800" data-alt-it="Foto di Carolina Crespi, sorridente, con le braccia incrociate" data-alt-en="Photo of Carolina Crespi, smiling, arms crossed" alt="Foto di Carolina Crespi, sorridente, con le braccia incrociate">
+      <span class="sticker s1"><span data-l="it">fisica dei sistemi complessi</span><span data-l="en">complex systems physics</span></span>
+      <span class="sticker s2"><span data-l="it">PhD in informatica</span><span data-l="en">PhD in computer science</span></span>
+      <span class="sticker s3"><span data-l="it">gioca sul serio</span><span data-l="en">serious about play</span></span>
+    </div>
+  </header>
+
+  <div class="ticker" data-l="it"><span>FISICA ✦ FORMICHE CHE COMPETONO ✦ UNA SUORA DI 70 ANNI IN MISSIONE ✦ UN RE, UNA SERVA E UNA STORIA CHE NON FINISCE MAI ✦ UNA PALLINA SENZA MAPPA IN UN LABIRINTO ✦ ALGORITMI DA BATTERE ✦ UNA SALA GIOCHI ✦ ROBOT IN ESPLORAZIONE ✦ FISICA ✦ FORMICHE CHE COMPETONO ✦ UNA SUORA DI 70 ANNI IN MISSIONE ✦ UN RE, UNA SERVA E UNA STORIA CHE NON FINISCE MAI ✦ UNA PALLINA SENZA MAPPA IN UN LABIRINTO ✦ ALGORITMI DA BATTERE ✦ UNA SALA GIOCHI ✦ ROBOT IN ESPLORAZIONE ✦ </span></div>
+  <div class="ticker" data-l="en"><span>PHYSICS ✦ COMPETING ANTS ✦ A 70-YEAR-OLD NUN ON A MISSION ✦ A KING, A MAID AND A STORY THAT NEVER ENDS ✦ A LITTLE BALL WITH NO MAP IN A MAZE ✦ ALGORITHMS TO BEAT ✦ A GAME ROOM ✦ ROBOTS EXPLORING ✦ PHYSICS ✦ COMPETING ANTS ✦ A 70-YEAR-OLD NUN ON A MISSION ✦ A KING, A MAID AND A STORY THAT NEVER ENDS ✦ A LITTLE BALL WITH NO MAP IN A MAZE ✦ ALGORITHMS TO BEAT ✦ A GAME ROOM ✦ ROBOTS EXPLORING ✦ </span></div>
+
+  <!-- ============ GIOCHI ============ -->
+  <section id="giochi">
+    <span class="kick"><span data-l="it">giochi</span><span data-l="en">games</span></span>
+    <h2><span data-l="it">Quello che <em>creo</em></span><span data-l="en">What I <em>create</em></span></h2>
+    <p class="lead"><span data-l="it">Invento storie, mondi e meccaniche, e li trasformo in giochi da browser. Alcuni sono fatti per ridere, altri per capire come ragiona un'intelligenza artificiale.</span><span data-l="en">I invent stories, worlds and mechanics, and turn them into browser games. Some are made to make you laugh, others to show how an artificial intelligence thinks.</span></p>
+    <div class="games">
+      <a class="game big" href="https://playnunner.com/" target="_blank" rel="noopener"><img data-l="it" src="img/nunner_it.jpg" alt="Suor Gertrude in pixel art con il logo di Nunner e l'indirizzo playnunner.com"><img data-l="en" src="img/nunner_en.jpg" alt="Sister Gertrude in pixel art in front of the city at sunset, with the Nunner logo"><div class="body"><h3>Nunner <span><span data-l="it">gioca →</span><span data-l="en">play →</span></span></h3><p class="tl"><span data-l="it">La fede non va in pensione.</span><span data-l="en">Faith never retires.</span></p><p class="hn"><span data-l="it">Suor Gertrude, 70 anni, corre per la città: salta i sette peccati capitali e raccoglie le grazie, e più va avanti più si corre veloce.</span><span data-l="en">Sister Gertrude, 70, runs through the city: she jumps over the seven deadly sins and collects graces, and the further she goes, the faster it gets.</span></p><p class="hn why"><span data-l="it"><b>Perché Nunner?</b> <i>Nun</i> (suora) + <i>runner</i> (corridore). Il nome si è scritto da solo.</span><span data-l="en"><b>Why Nunner?</b> <i>Nun</i> + <i>runner</i>. The name wrote itself.</span></p><p class="meta">2026 · HTML + JavaScript</p></div></a>
+      <a class="game" href="https://carolinacrespi.github.io/sharper_2026/" target="_blank" rel="noopener"><img src="img/sala-giochi.jpg" alt=""><div class="body"><h3><span data-l="it">La Sala Giochi dell'IA</span><span data-l="en">The AI Game Room</span> <span><span data-l="it">gioca →</span><span data-l="en">play →</span></span></h3><p class="hn"><span data-l="it">Sei giochi in cui sfidi gli algoritmi: consegne, orari scolastici, un rover su Marte.</span><span data-l="en">Six games where you take on algorithms: deliveries, school timetables, a rover on Mars.</span></p><p class="hn"><span data-l="it">Prima giochi tu, poi scopri come ragiona la macchina.</span><span data-l="en">You play first, then find out how the machine thinks.</span></p><p class="hn why"><span data-l="it"><b>Perché una sala giochi?</b> Perché un algoritmo battuto si ricorda meglio di un algoritmo spiegato.</span><span data-l="en"><b>Why a game room?</b> Because an algorithm you've beaten sticks better than one you've had explained.</span></p><p class="meta">2026 · HTML + JavaScript · SHARPER 2026</p></div></a>
+      <a class="game" href="https://carolinacrespi.github.io/storia-ricorsiva/" target="_blank" rel="noopener"><img src="img/storia-ricorsiva.jpg" alt=""><div class="body"><h3>C'era una volta un re… <span><span data-l="it">leggi →</span><span data-l="en">read →</span></span></h3><p class="hn"><span data-l="it">Il re chiede alla serva una storia, e la storia ricomincia dentro sé stessa.</span><span data-l="en">The king asks his maid for a story, and the story starts again inside itself.</span></p><p class="hn"><span data-l="it">È la ricorsione, raccontata con una filastrocca per bambini.</span><span data-l="en">It's recursion, told through a children's nursery rhyme.</span></p><p class="hn why"><span data-l="it"><b>Perché questa filastrocca?</b> Me la raccontavano quando ero piccola. Solo anni dopo ho scoperto che era ricorsione.</span><span data-l="en"><b>Why this rhyme?</b> I was told it as a child. Only years later did I realise it was recursion.</span></p><p class="meta">2026 · HTML + JavaScript</p><span class="lang-tag"><span data-l="it">solo in italiano</span><span data-l="en">Italian only</span></span></div></a>
+      <a class="game" href="https://carolinacrespi.github.io/Baduz/" target="_blank" rel="noopener"><img data-l="it" src="img/baduz_it.jpg" alt="Baduz, una pallina neon magenta, in un labirinto al neon"><img data-l="en" src="img/baduz_en.jpg" alt="Baduz, a magenta neon ball, in a neon maze"><div class="body"><h3>Baduz <span><span data-l="it">gioca →</span><span data-l="en">play →</span></span></h3><p class="hn"><span data-l="it">Guidi una pallina al neon fuori da 20 labirinti, tra chiavi, ghiaccio e zone rosse. Se ti perdi, il suggerimento trova la strada con una BFS e poi svanisce, come il feromone delle formiche.</span><span data-l="en">Guide a neon ball out of 20 mazes, through keys, ice and red zones. If you get lost, the hint finds the way with a BFS and then fades, like an ant's pheromone.</span></p><p class="hn why"><span data-l="it"><b>Perché Baduz?</b> Da <i>baduzza</i>, «pallina» in siciliano. In inglese non vuol dire niente, ed è questo il bello.</span><span data-l="en"><b>Why Baduz?</b> From <i>baduzza</i>, Sicilian for “little ball”. In English it means nothing, and that's the beauty of it.</span></p><p class="meta">2025 · HTML + JavaScript · Phaser</p></div></a>
+    </div>
+  </section>
+
+  <!-- ============ RICERCA ============ -->
+  <section id="ricerca">
+    <span class="kick"><span data-l="it">ricerca</span><span data-l="en">research</span></span>
+    <h2><span data-l="it">Quello che <em>studio</em></span><span data-l="en">What I <em>study</em></span></h2>
+    <p class="lead"><span data-l="it">Postdoc presso il Dipartimento di Matematica e Informatica dell'Università degli Studi di Catania. Mi occupo di come competizione, fiducia ed esplorazione guidano il comportamento intelligente di algoritmi e sistemi multi-agente, dall'ottimizzazione alla navigazione autonoma in ambienti sconosciuti.</span><span data-l="en">Postdoctoral researcher at the Department of Mathematics and Computer Science, University of Catania. I study how competition, trust and exploration shape intelligent behaviour in algorithms and multi-agent systems, from optimisation to autonomous navigation in unknown environments.</span></p>
+    <div class="chain">
+      <div class="link"><div class="w"><span data-l="it">Formiche che competono</span><span data-l="en">Competing ants</span></div><p><span data-l="it">Un po' di competizione rompe l'effetto gregge: la colonia esplora meglio.</span><span data-l="en">A little competition breaks the herd effect: the colony explores better.</span></p><span class="tagx"><span data-l="it">il cuore del dottorato</span><span data-l="en">the heart of my PhD</span></span></div>
+      <span class="to">→</span>
+      <div class="link"><div class="w"><span data-l="it">Seguire gli altri o fidarsi di sé?</span><span data-l="en">Follow others or trust yourself?</span></div><p><span data-l="it">Formiche e persone scelgono in modo sorprendentemente simile: ne ho fatto un modello di fiducia.</span><span data-l="en">Ants and people choose in strikingly similar ways: I turned it into a model of trust.</span></p><a class="tagx try" href="https://www.dmi.unict.it/ccrespi/my-research/index.html" target="_blank" rel="noopener"><span data-l="it">provalo tu →</span><span data-l="en">try it →</span></a></div>
+      <span class="to">→</span>
+      <div class="link"><div class="w"><span data-l="it">Esploratori senza mappa</span><span data-l="en">Explorers without a map</span></div><p><span data-l="it">Agenti in luoghi sconosciuti: quando esplorare, tornare indietro, parlarsi.</span><span data-l="en">Agents in unknown places: when to explore, turn back, talk to each other.</span></p><span class="tagx"><span data-l="it">ricerca in corso</span><span data-l="en">ongoing research</span></span></div>
+    </div>
+    <a class="btn" style="margin-top:36px" href="https://www.dmi.unict.it/ccrespi/" target="_blank" rel="noopener"><span data-l="it">Il mio sito accademico →</span><span data-l="en">My academic website →</span></a>
+  </section>
+
+  <!-- ============ CHI SONO ============ -->
+  <section id="chi-sono">
+    <span class="kick"><span data-l="it">su di me</span><span data-l="en">about me</span></span>
+    <h2><span data-l="it">Come ci sono <em>arrivata</em>.</span><span data-l="en">How I <em>got here</em>.</span></h2>
+    <div class="bio" style="margin-top:36px">
+      <div class="story">
+        <p><span data-l="it">Sono partita dalla fisica, scelta un po' per curiosità e un po' per coraggio. Con il dottorato sono passata all'informatica, studiando come tanti agenti semplici, insieme, riescono a prendere decisioni intelligenti.</span><span data-l="en">I started out in physics, chosen partly out of curiosity and partly out of courage. My PhD took me into computer science, studying how many simple agents, together, manage to make intelligent decisions.</span></p>
+        <p><span data-l="it">Poi sono arrivati i giochi. Il primo è stato Baduz, nel 2025; da lì i giochi per SHARPER, la Notte europea dei ricercatori di Catania, poi le storie interattive e Nunner. Ho scoperto che un gioco è il modo più diretto che conosco per trasformare un'idea complessa in qualcosa da provare con le mani.</span><span data-l="en">Then came the games. The first was Baduz, in 2025; after that, the games for SHARPER, European Researchers' Night in Catania, then the interactive stories and Nunner. I found that a game is the most direct way I know to turn a complex idea into something you can try with your own hands.</span></p>
+        <p><span data-l="it">Oggi divido le mie giornate tra la ricerca, le lezioni e i giochi: due strade che per me sono diventate una sola.</span><span data-l="en">Today I split my days between research, teaching and games: two paths that, for me, have become one.</span></p>
+        <a class="btn alt" style="margin:10px 0 0" href="cv.html"><span data-l="it">Il mio CV →</span><span data-l="en">My CV →</span></a>
+      </div>
+      <div class="now">
+        <h3><span data-l="it">fuori orario</span><span data-l="en">off the clock</span></h3>
+        <ul>
+          <li><span data-l="it">Gioco ancora con i Lego.</span><span data-l="en">I still play with Lego.</span></li>
+          <li><span data-l="it">Seguo la MotoGP. Tanto.</span><span data-l="en">I follow MotoGP. A lot.</span></li>
+          <li><span data-l="it">Degusto vini. Seriamente.</span><span data-l="en">I taste wine. Seriously.</span></li>
+          <li><span data-l="it">Viaggio appena posso.</span><span data-l="en">I travel whenever I can.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tline">
+      <div class="row axis" aria-hidden="true"><span></span><span>2013</span><span>2020</span><span>2024</span><span>2025</span><span>2026</span></div>
+      <div class="row uni">
+        <div class="lane"><span data-l="it">università</span><span data-l="en">university</span></div>
+        <div class="cell track"><div class="ev"><span class="yy">2013</span><b><span data-l="it">Laurea triennale in Fisica</span><span data-l="en">BSc in Physics</span></b></div></div>
+        <div class="cell track"><div class="ev"><span class="yy">2020</span><b><span data-l="it">Laurea magistrale in Fisica</span><span data-l="en">MSc in Physics</span></b></div></div>
+        <div class="cell track"><div class="ev"><span class="yy">2024</span><b><span data-l="it">Dottorato in Informatica</span><span data-l="en">PhD in Computer Science</span></b></div></div>
+        <div class="cell track span2"><div class="ev"><span class="yy">2025 →</span><b><span data-l="it">Postdoc e docente di AI</span><span data-l="en">Postdoc and AI lecturer</span></b></div></div>
+      </div>
+      <div class="row gms">
+        <div class="lane"><span data-l="it">giochi</span><span data-l="en">games</span></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell track start"><div class="ev"><span class="yy">2025</span><b>Baduz</b><span class="d"><span data-l="it">il mio primo gioco</span><span data-l="en">my first game</span></span></div><div class="ev"><span class="yy">2025</span><b>CIS Lab: gioca e impara!</b><span class="d"><span data-l="it">primi giochi a SHARPER 2025</span><span data-l="en">first games at SHARPER 2025</span></span></div></div>
+        <div class="cell track"><div class="ev"><span class="yy">2026</span><b>C'era una volta un re…</b><span class="d"><span data-l="it">la ricorsione in una filastrocca</span><span data-l="en">recursion in a nursery rhyme</span></span></div><div class="ev"><span class="yy">2026</span><b><span data-l="it">La Sala Giochi dell'IA</span><span data-l="en">The AI Game Room</span></b><span class="d"><span data-l="it">a SHARPER 2026</span><span data-l="en">at SHARPER 2026</span></span></div><div class="ev"><span class="yy">2026</span><b>Nunner</b><span class="d"><span data-l="it">runner in pixel art</span><span data-l="en">pixel-art runner</span></span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DIETRO LE QUINTE ============ -->
+  <section id="extra">
+    <div class="bts">
+      <div>
+        <span class="kick"><span data-l="it">sul campo</span><span data-l="en">in the field</span></span>
+        <h2><span data-l="it">Dietro le <em>quinte</em></span><span data-l="en">Behind the <em>scenes</em></span></h2>
+        <p class="lead"><span data-l="it">Eventi, laboratori e incontri: i momenti in cui i miei giochi e la mia ricerca escono dallo schermo e incontrano le persone.</span><span data-l="en">Events, workshops and meetups: the moments when my games and my research leave the screen and meet people.</span></p>
+      </div>
+      <div class="bts-row">
+      <div class="carousel">
+        <div class="track" id="track">
+          <figure class="slide"><img src="img/dq-sharper2026.jpg" data-alt-it="La Sala Giochi dell'IA sullo schermo a SHARPER 2026" data-alt-en="The AI Game Room on screen at SHARPER 2026" alt="La Sala Giochi dell'IA sullo schermo a SHARPER 2026"><figcaption><b>SHARPER 2026</b><span data-l="it">La Sala Giochi dell'IA alla Notte europea dei ricercatori di Catania: sei sfide contro gli algoritmi.</span><span data-l="en">The AI Game Room at European Researchers' Night in Catania: six challenges against algorithms.</span></figcaption></figure>
+          <figure class="slide"><img src="img/dq-squadra.jpg" data-alt-it="La squadra del laboratorio allo stand di SHARPER 2026" data-alt-en="The lab team at the SHARPER 2026 stand" alt="La squadra del laboratorio allo stand di SHARPER 2026"><figcaption><b>SHARPER 2026</b><span data-l="it">La squadra, a pieno regime.</span><span data-l="en">The team, in full swing.</span></figcaption></figure>
+          <figure class="slide"><img src="img/dq-orario.jpg" data-alt-it="Una partita a SOS Orario Scuola" data-alt-en="A round of SOS Orario Scuola, the school timetable game" alt="Una partita a SOS Orario Scuola"><figcaption><b>SHARPER 2026</b><span data-l="it">SOS Orario Scuola: tocca a te.</span><span data-l="en">SOS Orario Scuola, the timetable game: your turn.</span></figcaption></figure>
+          <figure class="slide"><img src="img/dq-consegna.jpg" data-alt-it="Una partita a Consegna Express" data-alt-en="A round of Consegna Express, the delivery game" alt="Una partita a Consegna Express"><figcaption><b>SHARPER 2026</b><span data-l="it">Consegna Express: qui sfidi anche le formiche.</span><span data-l="en">Consegna Express, the delivery game: here you're up against the ants too.</span></figcaption></figure>
+        </div>
+        <div class="ctrl"><button type="button" id="prev" data-aria-it="Foto precedente" data-aria-en="Previous photo" aria-label="Foto precedente">←</button><span class="count" id="count">1 / 4</span><button type="button" id="next" data-aria-it="Foto successiva" data-aria-en="Next photo" aria-label="Foto successiva">→</button></div>
+      </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    (() => {
+      const t = document.getElementById('track'), c = document.getElementById('count');
+      const n = t.children.length, i = () => Math.round(t.scrollLeft / t.clientWidth);
+      const go = k => t.scrollTo({ left: ((k + n) % n) * t.clientWidth });
+      document.getElementById('prev').onclick = () => go(i() - 1);
+      document.getElementById('next').onclick = () => go(i() + 1);
+      t.addEventListener('scroll', () => { c.textContent = (i() + 1) + ' / ' + n; });
+    })();
+  </script>
+
+  <!-- ============ CONTATTI ============ -->
+  <section class="contact" id="contatti">
+    <span class="kick"><span data-l="it">contatti</span><span data-l="en">contact</span></span>
+    <h2><span data-l="it">Sono pronta per <em>nuove sfide</em>.</span><span data-l="en">Ready for <em>new challenges</em>.</span></h2>
+    <p class="lead"><span data-l="it">Ho in testa altri giochi ed esperienze interattive da realizzare, e cerco persone e realtà con cui collaborare per farli crescere. Se hai un progetto in mente, o vuoi solo scoprire cosa faccio, scrivimi.</span><span data-l="en">I have more games and interactive experiences in mind, and I'm looking for people and organisations to collaborate with and help them grow. If you have a project in mind, or just want to find out what I do, drop me a line.</span></p>
+    <a class="btn" href="mailto:carolina.crespi@hotmail.it">carolina.crespi@hotmail.it</a>
+    <div class="links" style="margin-top:28px"><a href="https://www.linkedin.com/in/carolina-crespi/" target="_blank" rel="noopener">LINKEDIN</a><a href="https://github.com/CarolinaCrespi" target="_blank" rel="noopener">GITHUB</a></div>
+  </section>
+
+  <footer>
+    <span>© 2026 Carolina Crespi</span>
+  </footer>
+</div>
+<script>
+  /* lingua: pulsanti IT/EN, scelta ricordata nel browser */
+  (() => {
+    const root = document.documentElement;
+    const titles = { it: 'Carolina Crespi · giochi e ricerca', en: 'Carolina Crespi · games and research' };
+    function setLang(l) {
+      root.dataset.lang = l; root.lang = l; document.title = titles[l];
+      try { localStorage.setItem('cc_lang', l); } catch (e) {}
+      for (const b of document.querySelectorAll('[data-set-lang]')) b.setAttribute('aria-pressed', String(b.dataset.setLang === l));
+      for (const el of document.querySelectorAll('[data-aria-' + l + ']')) el.setAttribute('aria-label', el.getAttribute('data-aria-' + l));
+      for (const el of document.querySelectorAll('[data-alt-' + l + ']')) el.alt = el.getAttribute('data-alt-' + l);
+    }
+    for (const b of document.querySelectorAll('[data-set-lang]')) b.addEventListener('click', () => setLang(b.dataset.setLang));
+    setLang(root.dataset.lang === 'en' ? 'en' : 'it');
+  })();
+</script>
+</body>
+</html>
